@@ -46,6 +46,74 @@ For programming questions, `site:stackoverflow.com OR site:github.com` cuts thro
 ### Gotcha 8: Not expanding beyond the literal words
 User says "database" — you should think `(postgres|mysql|sqlite|mongodb|redis|"data store")`. User says "AI" — you should think `(AI|LLM|"machine learning"|"generative AI"|GenAI)`. User says "coding assistant" — you should think `(copilot|cursor|cody|windsurf|aider|"code completion"|"AI IDE")`. The internet uses many words for the same concept. Bridge that gap.
 
+## Instead of This, Do This
+
+Concrete before/after examples. Study these — they demonstrate the exact transformation this skill exists to produce.
+
+### Dates and Freshness
+
+**BAD:** `react server components tutorial`
+**GOOD:** `"react server components" (tutorial|guide|"deep dive") after:2025-01-01 -"top 10"`
+Why: tech content from 2021 is dangerously outdated. always add date filtering.
+
+**BAD:** `AI news latest`
+**GOOD:** `(AI|LLM|"generative AI") (announced|launched|released) after:2026-01-01`
+Why: "latest" means nothing to Google. use `after:` with a specific date, or `2025..2026` range.
+
+**BAD:** `python 3.12 new features`
+**GOOD:** `"python 3.12" (changelog|"what's new"|"release notes") site:python.org OR site:docs.python.org`
+Why: go straight to the source. official docs > random blog posts.
+
+### Documents and File Types
+
+**BAD:** `machine learning salary report`
+**GOOD:** `"machine learning" (salary|compensation|"total comp") (report|survey|data) filetype:pdf 2025..2026`
+Why: salary data lives in PDF reports from Levels.fyi, Glassdoor, etc. — not in blog posts. `filetype:pdf` digs them out.
+
+**BAD:** `startup pitch deck examples`
+**GOOD:** `"pitch deck" (template|example|"series A"|"seed round") filetype:pptx OR filetype:pdf -site:slideshare.com`
+Why: actual pitch decks are PDFs and PPTXs. exclude SlideShare (mostly garbage previews).
+
+**BAD:** `company financial data`
+**GOOD:** `"company-name" (10-K|"annual report"|financials) filetype:pdf site:sec.gov OR filetype:xlsx`
+Why: real financial data is in SEC filings (PDFs) or spreadsheets, not blog summaries.
+
+**BAD:** `research paper on transformer architecture`
+**GOOD:** `"transformer" (architecture|"attention mechanism") (paper|arxiv) filetype:pdf site:arxiv.org 2024..2026`
+Why: research papers are PDFs on arxiv. searching without `filetype:pdf site:arxiv.org` gives you blog explainers instead of the actual paper.
+
+### Long-Tail and Niche Searches
+
+**BAD:** `kubernetes best practices`
+**GOOD:** `(kubernetes|k8s) ("best practices"|"production checklist"|"lessons learned") (site:engineering.*.com|inurl:blog) 2025..2026 -"top 10" -listicle`
+Why: "best practices" returns generic content. target engineering blogs, add freshness, exclude listicles.
+
+**BAD:** `how to optimize postgres queries`
+**GOOD:** `(postgres|postgresql) "query optimization" (EXPLAIN|"execution plan"|"index scan"|"seq scan") (site:stackoverflow.com|site:github.com|inurl:blog) -"top 10"`
+Why: add the actual technical terms (EXPLAIN, execution plan) to get deep content instead of introductory fluff.
+
+**BAD:** `EU AI Act compliance`
+**GOOD:** `"EU AI Act" (compliance|requirements|obligations) (startup|SME|"small business") 2025..2026 site:ec.europa.eu OR site:euractiv.com OR filetype:pdf`
+Why: target official EU sources and PDF guidance documents. add `startup|SME` to narrow to the relevant audience.
+
+**BAD:** `docker vs podman`
+**GOOD:** `(docker|podman|containerd) (vs|versus|comparison|benchmark|migration) 2025..2026 -"top 10" -listicle (site:reddit.com|inurl:blog|site:news.ycombinator.com)`
+Why: expand beyond just two tools, target real opinions on reddit/HN, exclude SEO filler.
+
+**BAD:** `GDPR data processing agreement template`
+**GOOD:** `"data processing agreement" (template|sample|model|"standard contractual clauses") GDPR filetype:pdf OR filetype:docx -site:pinterest.com`
+Why: DPA templates are actual document files. use `filetype:` to find downloadable ones. exclude Pinterest (random pins).
+
+### Error Messages and Debugging
+
+**BAD:** `python memory error`
+**GOOD:** `"MemoryError" python (fix|cause|solution|"out of memory") (site:stackoverflow.com|site:github.com) -closed`
+Why: always quote the EXACT error, use OR for solution terms, target where developers actually post answers.
+
+**BAD:** `nginx 502 bad gateway`
+**GOOD:** `"502 Bad Gateway" nginx (cause|fix|debug|upstream) (site:stackoverflow.com|site:serverfault.com|inurl:docs) -"top 10"`
+Why: target sysadmin sources (serverfault), add debugging terms, exclude listicles.
+
 ## The Query Construction Process
 
 This isn't a rigid step-by-step — adapt it to the situation. The core idea is: think in dimensions, then combine them with operators.
@@ -143,3 +211,4 @@ Two or three well-constructed queries with operators will cover more ground than
 - Did I consider `site:` restricting to authoritative sources?
 
 For the full operator reference (syntax, examples, deprecated operators, tool-specific notes), see `references/operators.md`.
+
